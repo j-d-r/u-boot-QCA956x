@@ -24,6 +24,7 @@
 #include <stdarg.h>
 #include <malloc.h>
 #include <console.h>
+#include <devices.h>
 #include <exports.h>
 DECLARE_GLOBAL_DATA_PTR;
 
@@ -297,7 +298,7 @@ inline void dbg(const char *fmt, ...){
 
 /** U-Boot INIT FUNCTIONS *************************************************/
 
-int console_assign(int file, char *devname){
+int console_assign(int file, const char *devname){
 	int flag, i;
 
 	/* Check for valid file */
