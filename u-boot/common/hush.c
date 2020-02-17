@@ -90,9 +90,10 @@
 
 #include <malloc.h>         /* malloc, free, realloc*/
 #include <linux/ctype.h>    /* isalpha, isdigit */
-#include <common.h>        /* readline */
+#include <common.h>        /* cli_readline */
 #include <hush.h>
 #include <command.h>        /* find_cmd */
+#include <cli.h>
 /*cmd_boot.c*/
 extern int do_bootd(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[]); /* do_bootd */
 
@@ -358,9 +359,9 @@ static int static_peek(struct in_str *i) {
 }
 
 static void get_user_input(struct in_str *i) {
-	extern char console_buffer[CONFIG_SYS_CBSIZE];
+	extern char console_buffer[CONFIG_SYS_CBSIZE + 1];
 	int n;
-	static char the_command[CONFIG_SYS_CBSIZE];
+	static char the_command[CONFIG_SYS_CBSIZE + 1];
 
 #ifdef CONFIG_BOOT_RETRY_TIME
 #  ifdef CONFIG_RESET_TO_RETRY
@@ -372,9 +373,9 @@ static void get_user_input(struct in_str *i) {
 #endif
 	i->__promptme = 1;
 	if (i->promptmode == 1) {
-		n = readline(CONFIG_SYS_PROMPT);
+		n = cli_readline(CONFIG_SYS_PROMPT);
 	} else {
-		n = readline(CONFIG_SYS_PROMPT_HUSH_PS2);
+		n = cli_readline(CONFIG_SYS_PROMPT_HUSH_PS2);
 	}
 #ifdef CONFIG_BOOT_RETRY_TIME
 	if (n == -2) {

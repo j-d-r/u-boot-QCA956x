@@ -467,7 +467,7 @@ int do_askenv( cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[]){
 	}
 
 	/* prompt for input */
-	len = readline(message);
+	len = cli_readline(message);
 
 	if(size < len){
 		console_buffer[size] = '\0';
