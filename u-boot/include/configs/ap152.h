@@ -57,9 +57,9 @@
 
 #if defined(CONFIG_FOR_TPLINK_EAP245_V1)
 
-	#define CONFIG_BOOTARGS	"console=ttyS0,115200 root=31:02 "\
-				"rootfstype=squashfs init=/sbin/init "\
-				"mtdparts=ath-nor0:128k(u-boot),1024k(kernel),2816k(rootfs),64k(config),64k(art)"
+	#define CONFIG_BOOTARGS	"console=ttyS0,115200 "\
+				"rootfstype=squashfs noinitrd "\
+				"mtdparts=spi0.0:128k(u-boot)ro,64k(partition-table)ro,64k(product-info)ro,1536k(kernel),14336k(rootfs),192k(config)ro,64k(ART)ro,15872k@0x40000(firmware)"
 
 #endif
 
