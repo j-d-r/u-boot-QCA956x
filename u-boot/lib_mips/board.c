@@ -22,6 +22,7 @@
  */
 
 #include <common.h>
+#include <console.h>
 #include <command.h>
 #include <asm/mipsregs.h>
 #include <asm/addrspace.h>
