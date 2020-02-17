@@ -82,8 +82,8 @@
  * =========================
  */
 #if defined(CONFIG_FOR_TPLINK_EAP245_V1) 
-	#define CFG_ENV_ADDR		0x9F01EC00
-	#define CFG_ENV_SIZE		0x1000
+	#define CFG_ENV_ADDR		0x9F010000
+	#define CFG_ENV_SIZE		0xffd0
 	#define CFG_ENV_SECT_SIZE	0x10000
 #endif
 
@@ -116,6 +116,7 @@
  */
 #if defined(CONFIG_FOR_TPLINK_EAP245_V1)
 	#undef CONFIG_CMD_GPIO
+	#undef CONFIG_CMD_SNTP
 #endif
 
 /*
