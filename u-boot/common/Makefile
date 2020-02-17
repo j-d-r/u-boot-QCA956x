@@ -15,6 +15,7 @@ OBJS-y += cmd_itest.o
 OBJS-y += cmd_load.o
 OBJS-y += cmd_qcaclk.o
 OBJS-y += cmd_qcagpio.o
+OBJS-y += cli_readline.o
 OBJS-y += command.o
 OBJS-y += console.o
 OBJS-y += devices.o

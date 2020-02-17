@@ -3316,7 +3316,8 @@
 #define CFG_PROMPT      "dragonfly> "     /* Monitor Command Prompt    */
 #define CONFIG_SYS_CBSIZE      512     /* Console I/O Buffer Size   */
 #define CONFIG_SYS_PBSIZE      (CONFIG_SYS_CBSIZE+sizeof(CFG_PROMPT)+16)  /* Print Buffer Size */
-#define CONFIG_SYS_MAXARGS     16      /* max number of command args*/
+#define CFG_PBSIZE      (CONFIG_SYS_CBSIZE+sizeof(CFG_PROMPT)+16)  /* Print Buffer Size */
+#define CFG_MAXARGS     16      /* max number of command args*/
 
 #define CFG_MALLOC_LEN      (128*1024)
 

@@ -38,13 +38,6 @@ DECLARE_GLOBAL_DATA_PTR;
 #include <net.h>
 #endif
 
-static char *delete_char(char *buffer, char *p, int *colp, int *np, int plen);
-static int parse_line(char *, char *[]);
-
-char console_buffer[CONFIG_SYS_CBSIZE];	/* console I/O buffer  */
-static char erase_seq[] = "\b \b";	/* erase sequence      */
-static char tab_seq[] = "        ";	/* used to expand TABs */
-
 /*
  * Watch for 'delay' seconds for autoboot stop or autoboot delay string.
  * returns: 0 -  no key string, allow autoboot
@@ -312,7 +305,7 @@ void main_loop(void)
 		;
 #else
 	for (;;) {
-		len = readline(CONFIG_SYS_PROMPT);
+		len = cli_readline(CONFIG_SYS_PROMPT);
 
 		/* Assume no special flags for now */
 		flag = 0;
@@ -332,144 +325,6 @@ void main_loop(void)
 			lastcommand[0] = 0;
 	}
 #endif /* CONFIG_HUSH_PARSER */
-}
-
-/*
- * Prompt for input and read a line.
- * If  CONFIG_BOOT_RETRY_TIME is defined and retry_time >= 0,
- * time out when time goes past endtime (timebase time in ticks).
- * Return:	number of read characters
- *		-1 if break
- *		-2 if timed out
- */
-int readline(const char * const prompt)
-{
-	char *p = console_buffer;
-	int plen = 0;	/* prompt length     */
-	int n = 0;	/* buffer index      */
-	int col;	/* output column cnt */
-	char c;
-
-	/* Print prompt */
-	if (prompt) {
-		plen = strlen(prompt);
-		puts(prompt);
-	}
-	col = plen;
-
-	for (;;) {
-		c = getc();
-
-		/* Special character handling */
-		switch (c) {
-		/* Enter */
-		case '\r':
-		case '\n':
-			*p = '\0';
-			puts("\r\n");
-			return p - console_buffer;
-		/* NULL */
-		case '\0':
-			continue;
-		/* ^C - break */
-		case 0x03:
-			/* discard input */
-			console_buffer[0] = '\0';
-			return -1;
-		/* ^U - erase line */
-		case 0x15:
-			while (col > plen) {
-				puts(erase_seq);
-				--col;
-			}
-
-			p = console_buffer;
-			n = 0;
-
-			continue;
-		/* ^W - erase word */
-		case 0x17:
-			p = delete_char(console_buffer, p, &col, &n, plen);
-			while ((n > 0) && (*p != ' '))
-				p = delete_char(console_buffer, p, &col, &n, plen);
-
-			continue;
-		/* ^H  - backspace */
-		/* DEL - backspace */
-		case 0x08:
-		case 0x7F:
-			p = delete_char(console_buffer, p, &col, &n, plen);
-			continue;
-		/* Must be a normal character then */
-		default:
-			if (n < CONFIG_SYS_CBSIZE - 2) {
-				if (c == '\t') {
-#ifdef CONFIG_AUTO_COMPLETE
-					/*
-					 * if auto completion triggered just
-					 * continue
-					 */
-					*p = '\0';
-					if (cmd_auto_complete(prompt,
-							      console_buffer,
-							      &n, &col)) {
-						p = console_buffer + n;	/* reset */
-						continue;
-					}
-#endif
-					/* Expand TABs */
-					puts(tab_seq + (col & 07));
-					col += 8 - (col & 07);
-				} else {
-					/* Echo input */
-					++col;
-					putc(c);
-				}
-
-				*p++ = c;
-				++n;
-			} else {
-				/* Buffer full */
-				putc('\a');
-			}
-		}
-	}
-}
-
-static char *delete_char(char *buffer,
-			 char *p,
-			 int *colp,
-			 int *np,
-			 int plen)
-{
-	char *s;
-
-	if (*np == 0)
-		return p;
-
-	if (*(--p) == '\t') {
-		/* Will retype the whole line */
-		while (*colp > plen) {
-			puts(erase_seq);
-			(*colp)--;
-		}
-
-		for (s = buffer; s < p; ++s) {
-			if (*s == '\t') {
-				puts(tab_seq + ((*colp) & 07));
-				*colp += 8 - ((*colp) & 07);
-			} else {
-				++(*colp);
-				putc(*s);
-			}
-		}
-	} else {
-		puts(erase_seq);
-		(*colp)--;
-	}
-
-	(*np)--;
-	return p;
 }
 
 int parse_line(char *line, char *argv[])

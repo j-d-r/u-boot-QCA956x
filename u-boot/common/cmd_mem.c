@@ -29,6 +29,7 @@
 
 #include <common.h>
 #include <command.h>
+#include <cli.h>
 #if defined(CONFIG_CMD_MMC)
 #include <mmc.h>
 #endif
@@ -700,7 +701,7 @@ static int mod_mem(cmd_tbl_t *cmdtp, int incrflag, int flag, int argc, char * co
 			printf(" %02X", *((u_char *)addr));
 		}
 
-		nbytes = readline(" ? ");
+		nbytes = cli_readline(" ? ");
 		if (nbytes == 0 || (nbytes == 1 && console_buffer[0] == '-')) {
 			/*
 			 * <CR> pressed as only input, don't modify current
