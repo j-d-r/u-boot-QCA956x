@@ -378,6 +378,9 @@ int NetLoop(proto_t protocol){
 
 			break;
 
+#if defined(CONFIG_CMD_DHCP)
+		case DHCP:
+#endif
 		case BOOTP:
 		case RARP:
 			/*
@@ -427,8 +430,6 @@ int NetLoop(proto_t protocol){
 				case DHCP:
 					/* Start with a clean slate... */
 					BootpTry = 0;
-					NetOurIP = 0;
-					NetServerIP = getenv_IPaddr("serverip");
 					DhcpRequest(); /* Basically same as BOOTP */
 					break;
 
