@@ -83,6 +83,9 @@
 #define CONFIG_NETCONSOLE	1
 #define CONFIG_NETCONSOLE_PORT	6666
 
+/* Read environment tftpdstp and tftpsrcp */
+#define CONFIG_TFTP_PORT
+
 /* Other environment variables */
 #define CONFIG_BOOTFILE	firmware.bin
 #define CONFIG_LOADADDR	0x80800000

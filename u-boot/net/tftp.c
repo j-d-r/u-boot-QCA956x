@@ -395,11 +395,26 @@ void TftpStart(proto_t protocol)
 	} else
 		tftp_filename = BootFile;
 
+	TftpServerPort   = WELL_KNOWN_PORT;
+	/* Use a pseudo-random port unless a specific port is set */
+	TftpOurPort = 1024 + (get_timer(0) % 3072);
+
+#if defined(CONFIG_TFTP_PORT)
+	if ((ep = getenv("tftpdstp")) != NULL)
+		TftpServerPort = simple_strtol(ep, NULL, 10);
+
+	if ((ep = getenv("tftpsrcp")) != NULL)
+		TftpOurPort= simple_strtol(ep, NULL, 10);
+
+#endif
+
 	printf("\n%s ", protocol == TFTPPUT ? "  TFTP to IP:" : "TFTP from IP:");
 	print_IPaddr(NetServerIP);
+	printf(":%i", TftpServerPort);
 
 	puts("\n      Our IP: ");
 	print_IPaddr(NetOurIP);
+	printf(":%i", TftpOurPort);
 
 	/* Check if we need to send across this subnet */
 	if (NetOurGatewayIP && NetOurSubnetMask) {
@@ -446,19 +461,8 @@ void TftpStart(proto_t protocol)
 	NetSetTimeout(TIMEOUT * CFG_HZ, TftpTimeout);
 	NetSetHandler(TftpHandler);
 
-	TftpServerPort   = WELL_KNOWN_PORT;
 	TftpTimeoutCount = 0;
 
-	/* Use a pseudo-random port unless a specific port is set */
-	TftpOurPort = 1024 + (get_timer(0) % 3072);
-
-#if defined(CONFIG_TFTP_PORT)
-	if ((ep = getenv("tftpdstp")) != NULL)
-		TftpServerPort = simple_strtol(ep, NULL, 10);
-
-	if ((ep = getenv("tftpsrcp")) != NULL)
-		TftpOurPort= simple_strtol(ep, NULL, 10);
-#endif
 
 	TftpBlock = 0;
 
