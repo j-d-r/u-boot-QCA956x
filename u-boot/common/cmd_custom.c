@@ -163,7 +163,14 @@ U_BOOT_CMD(printpin, 1, 1, do_print_pin, "print WPS pin stored in FLASH", NULL);
  * Start NetConsole
  */
 int do_start_nc(cmd_tbl_t * cmdtp, int flag, int argc, char * const argv[]){
-	return(run_command("setenv stdin nc;setenv stdout nc;setenv stderr nc;version;", 0));
+	const char *nc_port = getenv("ncport");
+	nc_port = nc_port ? nc_port : "6666";
+
+	const char *nc_ip = getenv("ipaddr");
+	nc_ip = nc_ip ? nc_ip : "(undefined)";
+
+	printf("Redirecting console to UDP port %s. Connect with \'nc -u -p %s %s %s\'\n", nc_port, nc_port, nc_ip, nc_port);
+	return(run_command("setenv stdin nc;setenv stdout nc;setenv stderr nc;", 0));
 }
 
 U_BOOT_CMD(startnc, 1, 0, do_start_nc, "start net console", NULL);
@@ -172,7 +179,7 @@ U_BOOT_CMD(startnc, 1, 0, do_start_nc, "start net console", NULL);
  * Start Serial Console
  */
 int do_start_sc(cmd_tbl_t * cmdtp, int flag, int argc, char * const argv[]){
-	return(run_command("setenv stdin serial;setenv stdout serial;setenv stderr serial;version;", 0));
+	return(run_command("setenv stdin serial;setenv stdout serial;setenv stderr serial;", 0));
 }
 
 U_BOOT_CMD(startsc, 1, 0, do_start_sc, "start serial console", NULL);
