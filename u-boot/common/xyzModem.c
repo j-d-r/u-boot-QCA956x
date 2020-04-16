@@ -234,6 +234,7 @@ static int xyzModem_get_hdr(void)
 			switch(c){
 			case SOH:
 				xyz.total_SOH++;
+				/* falls through. */
 			case STX:
 				if(c == STX)
 					xyz.total_STX++;

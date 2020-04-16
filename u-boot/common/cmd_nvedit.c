@@ -43,6 +43,7 @@
 #include <serial.h>
 #include <linux/stddef.h>
 #include <asm/byteorder.h>
+#include <console.h>
 #if defined(CONFIG_CMD_NET)
 #include <net.h>
 #endif

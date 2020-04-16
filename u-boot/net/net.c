@@ -76,6 +76,7 @@
 #include <common.h>
 #include <command.h>
 #include <net.h>
+#include <console.h>
 #include "bootp.h"
 #include "tftp.h"
 #include "rarp.h"
@@ -389,9 +390,7 @@ int NetLoop(proto_t protocol){
 			 */
 			NetOurIP			= 0;
 			NetServerIP			= getenv_IPaddr("serverip");
-			NetOurVLAN			= getenv_VLAN("vlan"); /* VLANs must be read */
-			NetOurNativeVLAN	= getenv_VLAN("nvlan");
-
+			/* falls through. */
 		case CDP:
 			NetOurVLAN			= getenv_VLAN("vlan"); /* VLANs must be read */
 			NetOurNativeVLAN	= getenv_VLAN("nvlan");

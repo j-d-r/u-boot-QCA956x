@@ -29,6 +29,7 @@
 
 #include <common.h>
 #include <command.h>
+#include <console.h>
 #include <cli.h>
 #if defined(CONFIG_CMD_MMC)
 #include <mmc.h>

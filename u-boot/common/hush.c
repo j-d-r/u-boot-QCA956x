@@ -93,7 +93,10 @@
 #include <common.h>        /* cli_readline */
 #include <hush.h>
 #include <command.h>        /* find_cmd */
+#include <command.h>
+#include <console.h>
 #include <cli.h>
+
 /*cmd_boot.c*/
 extern int do_bootd(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[]); /* do_bootd */
 

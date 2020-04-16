@@ -23,6 +23,7 @@
 
 #include <common.h>
 #include <command.h>
+#include <console.h>
 
 #if defined(CONFIG_HUSH_PARSER)
 #include <hush.h>
