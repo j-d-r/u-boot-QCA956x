@@ -138,7 +138,7 @@ define final_img
   $(call echo_green,Preparing final image...)
   dd if=$(BIN_DIR)/temp.bin of=$(BIN_DIR)/$(call img_name,bin) \
      conv=notrunc 2> /dev/null
-
+  cp -a $(BIN_DIR)/$(call img_name,bin) $(BIN_DIR)/u-boot.bin
   rm -f $(BIN_DIR)/temp.bin
 endef
 
