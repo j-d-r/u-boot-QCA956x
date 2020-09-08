@@ -276,7 +276,10 @@ static int cread_line(const char *const prompt, char *buf, unsigned int *len,
 
 		ichar = getcmd_getch();
 
-		if ((ichar == '\n') || (ichar == '\r')) {
+		if (ichar == '\r') /* Ignore CR */
+			continue;
+
+		if (ichar == '\n') {
 			putc('\n');
 			break;
 		}
@@ -582,8 +585,9 @@ int cli_readline_into_buffer(const char *const prompt, char *buffer,
 		 * Special character handling
 		 */
 		switch (c) {
-		case '\r':			/* Enter		*/
-		case '\n':
+		case '\r':
+			continue;
+		case '\n':			/* Enter		*/
 			*p = '\0';
 			puts("\r\n");
 			return p - p_buf;
