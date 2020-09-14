@@ -1,67 +1,66 @@
+#
+# Copyright (C) 2000-2006 Wolfgang Denk, DENX Software Engineering, wd@denx.de.
+#
+# SPDX-License-Identifier: GPL-2.0
+#
+
 include $(TOPDIR)/config.mk
 
-LIB	= lib$(BOARD).a
+BOOTSTRAPOBJ-y += $(BOARD).o
 
-OBJS	= $(BOARD).o ../common/spi_flash.o ../common/common.o ../common/qca-eth-955x.o
+OBJS-y += $(BOARD).o
+OBJS-y += ../common/spi_flash.o
+OBJS-y += ../common/common.o
+OBJS-y += ../common/qca-eth-955x.o
 
 ifeq ($(ATH_RGMII_CAL),1)
-OBJS	+= ../common/rgmii-cal-955x.o
-OBJS	+= ../common/athrs17_lpbk.o
+  OBJS-y	+= ../common/rgmii-cal-955x.o
+  OBJS-y	+= ../common/athrs17_lpbk.o
 endif
 
 ifeq ($(ETH_CONFIG2), _s17)
-OBJS	+= ../common/athrs17_phy.o
+  OBJS-y	+= ../common/athrs17_phy.o
 endif
 
 ifeq ($(ETH_CONFIG), _s17)
-OBJS	+= ../common/athrs17_phy.o
+  OBJS-y	+= ../common/athrs17_phy.o
 endif
 
 ifeq ($(ETH_CONFIG2), _s17_hwaccel)
-OBJS	+= ../common/athrs17_phy.o
+  OBJS-y	+= ../common/athrs17_phy.o
 endif
 
 ifeq ($(ETH_CONFIG), _s17_hwaccel)
-OBJS	+= ../common/athrs17_phy.o
+  OBJS-y	+= ../common/athrs17_phy.o
 endif
 
 ifeq ($(ETH_CONFIG), _s16)
-OBJS	+= ../common/athrs16_phy.o
+  OBJS-y	+= ../common/athrs16_phy.o
 endif
 
 ifeq ($(ETH_CONFIG), _f1e)
-OBJS	+= ../common/athrsf1_phy.o
+  OBJS-y	+= ../common/athrsf1_phy.o
 endif
 
 ifeq ($(ETH_CONFIG), _f2e)
-OBJS	+= ../common/athrsf2_phy.o
+  OBJS-y	+= ../common/athrsf2_phy.o
 endif
 
 ifeq ($(ETH_CONFIG), _vir)
-OBJS	+= ../common/athrs_vir_phy.o
+  OBJS-y	+= ../common/athrs_vir_phy.o
 endif
 
 ifeq ($(ETH_CONFIG2), _vir)
-OBJS	+= ../common/athrs_vir_phy.o
+  OBJS-y	+= ../common/athrs_vir_phy.o
 endif
 
 ifeq ($(ETH_CONFIG), _s27)
-OBJS	+= ../common/athr_s27_phy.o
+  OBJS-y	+= ../common/athr_s27_phy.o
 endif
 
 ifeq ($(ETH_CONFIG), _ar8033)
-OBJS	+= ../common/athrs_ar8033_phy.o
-OBJS	+= ../common/miiphybb.o
+  OBJS-y	+= ../common/athrs_ar8033_phy.o
+  OBJS-y	+= ../common/miiphybb.o
 endif
 
-$(LIB):	.depend $(OBJS) $(SOBJS)
-	$(AR) crv $@ $(OBJS) $(SOBJS)
-
-#########################################################################
-
-.depend:	Makefile $(SOBJS:.o=.S) $(OBJS:.o=.c)
-		$(CC) -M $(CFLAGS) $(SOBJS:.o=.S) $(OBJS:.o=.c) > $@
-
-sinclude .depend
-
-#########################################################################
+include $(TOPDIR)/end.mk

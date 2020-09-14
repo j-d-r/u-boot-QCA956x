@@ -22,7 +22,7 @@ ifeq ($(BOARD), db12x)
 endif
 
 ifeq ($(BOARD), ap135)
-	SOBJS	+= qca95xx_pll_init.o
+	OBJS-y += qca95xx_pll_init.o
 endif
 
 ifeq ($(BOARD), ap143)
