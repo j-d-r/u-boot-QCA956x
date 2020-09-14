@@ -2308,11 +2308,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(32, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(16, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(20, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(10, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2321,11 +2325,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(32, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(12, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 1, 1, 0, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 1, 1, 0, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(20, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(15, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 2, 1, 0, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 2, 1, 0, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2334,11 +2342,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(32, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(16, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 1, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 1, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(20, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(10, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 1, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 1, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2347,11 +2359,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(32, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(24, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(20, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(15, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2360,11 +2376,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(32, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(24, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(20, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(15, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2373,11 +2393,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(32, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(24, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 0)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 0),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(20, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(15, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 0)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 0),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2386,12 +2410,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(36, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(16, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(22, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(10, 1, 1, 0, 0),
 			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
-			_qca95xx_cpu_pll_dither_reg_val(32)
+			_qca95xx_cpu_pll_dither_reg_val(32),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2400,12 +2427,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(36, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(16, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 0)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 0),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(22, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(10, 1, 1, 0, 0),
 			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 0),
-			_qca95xx_cpu_pll_dither_reg_val(32)
+			_qca95xx_cpu_pll_dither_reg_val(32),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2414,12 +2444,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(36, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(16, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 1, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 1, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(22, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(10, 1, 1, 0, 0),
 			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 1, 1, 1, 1),
-			_qca95xx_cpu_pll_dither_reg_val(32)
+			_qca95xx_cpu_pll_dither_reg_val(32),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2428,12 +2461,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(36, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(24, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(22, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(15, 1, 1, 0, 0),
 			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 1),
-			_qca95xx_cpu_pll_dither_reg_val(32)
+			_qca95xx_cpu_pll_dither_reg_val(32),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2442,12 +2478,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(36, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(24, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(22, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(15, 1, 1, 0, 0),
 			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
-			_qca95xx_cpu_pll_dither_reg_val(32)
+			_qca95xx_cpu_pll_dither_reg_val(32),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2456,12 +2495,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(36, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(24, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(22, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(15, 1, 1, 0, 0),
 			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
-			_qca95xx_cpu_pll_dither_reg_val(32)
+			_qca95xx_cpu_pll_dither_reg_val(32),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2470,12 +2512,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(36, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(48, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(22, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(30, 1, 1, 0, 0),
 			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1),
-			_qca95xx_cpu_pll_dither_reg_val(32)
+			_qca95xx_cpu_pll_dither_reg_val(32),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2484,11 +2529,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(40, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(16, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(25, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(10, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2497,11 +2546,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(40, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(48, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 3, 4, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 3, 4, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(25, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(30, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 3, 4, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 3, 4, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2510,11 +2563,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(40, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(16, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 1, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 1, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(25, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(10, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 1, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 1, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2523,11 +2580,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(40, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(24, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(25, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(15, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 3, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2536,11 +2597,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(40, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(24, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(25, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(15, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2549,11 +2614,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(40, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(24, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(25, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(15, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2562,11 +2631,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(40, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(48, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(25, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(30, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2575,11 +2648,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(40, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(48, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(25, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(30, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! */
@@ -2588,11 +2665,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(40, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(48, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(25, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(30, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 2, 3, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	}, {
 		/* Tested! QCA9531 booting to u-boot only */
@@ -2601,12 +2682,15 @@ static const clk_profile clk_profiles[] = {
 		{
 			_qca95xx_cpu_pll_cfg_reg_val(44, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(16, 1, 1, 0, 0),
-			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1)
+			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
+			_qca95xx_cpu_pll_dither_reg_val(0),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}, {
 			_qca95xx_cpu_pll_cfg_reg_val(27, 1, 1, 0, 0),
 			_qca95xx_ddr_pll_cfg_reg_val(10, 1, 1, 0, 0),
 			_qca95xx_cpu_ddr_clk_ctrl_reg_val(1, 1, 2, 1, 1, 1),
-			_qca95xx_cpu_pll_dither_reg_val(32)
+			_qca95xx_cpu_pll_dither_reg_val(32),
+			_qca95xx_ddr_pll_dither_reg_val(0)
 		}
 	},
 	#elif (SOC_TYPE & QCA_QCA956X_SOC)
