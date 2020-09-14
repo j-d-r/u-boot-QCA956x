@@ -485,7 +485,7 @@ alfa-network_n5q: ar934x_common
 alfa-network_r36a: qca953x_common
 	@$(call config_init,ALFA Network R36A,r36a,16,2,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_ALFA_NETWORK_R36A,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -497,21 +497,21 @@ alfa-network_tube2h: ar933x_common
 comfast_cf-e314n: qca953x_common
 	@$(call config_init,Comfast CF-E314N,cf-e314n,16,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_COMFAST_CF_E314N,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
 comfast_cf-e320n_v2: qca953x_common
 	@$(call config_init,Comfast CF-E320N v2,cf-e320n-v2,16,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_COMFAST_CF_E320N_V2,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
 comfast_cf-e520n: qca953x_common
 	@$(call config_init,Comfast CF-E520N,cf-e520n,8,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_COMFAST_CF_E520N,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -519,7 +519,7 @@ comfast_cf-e530n: qca953x_common
 	@$(call config_init,Comfast CF-E530N,cf-e530n,8,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_COMFAST_CF_E530N,1)
 	@$(call define_add,CONFIG_USB,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -555,7 +555,7 @@ gainstrong_oolite_v1_dev: ar933x_common
 gainstrong_oolite_v5.2: qca953x_common
 	@$(call config_init,GainStrong Oolite v5.2,oolite-v5.2,16,,,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_GAINSTRONG_OOLITE_V5_2,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(call define_add,CONFIG_PCI,1)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
@@ -563,7 +563,7 @@ gainstrong_oolite_v5.2: qca953x_common
 gainstrong_oolite_v5.2_dev: qca953x_common
 	@$(call config_init,GainStrong Oolite v5.2-Dev,oolite-v5.2-dev,16,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_GAINSTRONG_OOLITE_V5_2_DEV,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(call define_add,CONFIG_PCI,1)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
@@ -588,7 +588,7 @@ gl-inet_gl-ar300: ar934x_common
 gl-inet_gl-ar300m-lite: qca953x_common
 	@$(call config_init,GL.iNet GL-AR300M Lite,gl-ar300m-lite,16,3,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_GLINET_GL_AR300M_LITE,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(call define_add,CONFIG_PCI,1)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
@@ -596,7 +596,7 @@ gl-inet_gl-ar300m-lite: qca953x_common
 gl-inet_gl-ar750: qca953x_common
 	@$(call config_init,GL.iNet GL-AR750,gl-ar750,16,3,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_GLINET_GL_AR750,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(call define_add,CONFIG_PCI,1)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
@@ -624,7 +624,7 @@ hak5_wifi-pineapple-nano: ar933x_common
 p2w_cpe505n: qca953x_common
 	@$(call config_init,P&W CPE505N,cpe505n,16,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_P2W_CPE505N,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -632,7 +632,7 @@ p2w_r602n: qca953x_common
 	@$(call config_init,P&W R602N,r602n,16,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_P2W_R602N,1)
 	@$(call define_add,CONFIG_USB,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -661,7 +661,7 @@ tp-link_tl-mr22u_v1: qca953x_common lsdk_kernel
 	@$(call config_init,TP-Link TL-MR22U v1,tl-mr22u-v1,8,12,,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_TPLINK_MR22U_V1,1)
 	@$(call define_add,CONFIG_USB,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -691,7 +691,7 @@ tp-link_tl-mr3420_v3: qca953x_common lsdk_kernel
 	@$(call config_init,TP-Link TL-MR3420 v3,tl-mr3420-v3,4,12,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_TPLINK_MR3420_V3,1)
 	@$(call define_add,CONFIG_USB,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -700,7 +700,7 @@ tp-link_tl-mr6400_v1v2: qca953x_common lsdk_kernel
 	@$(call define_add,CONFIG_FOR_TPLINK_MR6400_V1V2,1)
 	@$(call define_add,CONFIG_USB,1)
 	@$(call define_add,CONFIG_QCA_ETH_PHY_SWAP,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -721,7 +721,7 @@ tp-link_tl-wa830re_v2: ar934x_common lsdk_kernel
 tp-link_tl-wa850re_v2: qca953x_common lsdk_kernel
 	@$(call config_init,TP-Link TL-WA850RE v2,tl-wa850re-v2,4,17,1,QCA_QCA9533_SOC)
 	@$(call define_add,CONFIG_FOR_TPLINK_WA850RE_V2,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -782,7 +782,7 @@ tp-link_tl-wr740n_v4: ar933x_common lsdk_kernel
 tp-link_tl-wr802n_v1: qca953x_common lsdk_kernel
 	@$(call config_init,TP-Link TL-WR802N v1,tl-wr802n-v1,4,12,1,QCA_QCA9533_SOC)
 	@$(call define_add,CONFIG_FOR_TPLINK_WR802N_V1,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -790,14 +790,14 @@ tp-link_tl-wr810n_v1: qca953x_common lsdk_kernel
 	@$(call config_init,TP-Link TL-WR810N v1,tl-wr810n-v1,8,12,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_TPLINK_WR810N_V1,1)
 	@$(call define_add,CONFIG_USB,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
 tp-link_tl-wr810n_v2: qca953x_common lsdk_kernel
 	@$(call config_init,TP-Link TL-WR810N v2,tl-wr810n-v2,8,12,1,QCA_QCA9533_SOC)
 	@$(call define_add,CONFIG_FOR_TPLINK_WR810N_V2,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -805,21 +805,21 @@ tp-link_tl-wr820n_v1_CN: qca953x_common lsdk_kernel
 	@$(call config_init,TP-Link TL-WR820N v1 CN,tl-wr820n-v1,4,12,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_TPLINK_WR820N_V1_CN,1)
 	@$(call define_add,CONFIG_USB,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
 tp-link_tl-wr841n_v10: qca953x_common lsdk_kernel
 	@$(call config_init,TP-Link TL-WR841N/D v10,tl-wr841nd-v10,4,12,1,QCA_QCA9533_SOC)
 	@$(call define_add,CONFIG_FOR_TPLINK_WR841N_V10,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
 tp-link_tl-wr841n_v11: qca953x_common lsdk_kernel
 	@$(call config_init,TP-Link TL-WR841N/D v11,tl-wr841nd-v11,4,12,1,QCA_QCA9533_SOC)
 	@$(call define_add,CONFIG_FOR_TPLINK_WR841N_V11,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -833,7 +833,7 @@ tp-link_tl-wr841n_v8: ar934x_common lsdk_kernel
 tp-link_tl-wr841n_v9: qca953x_common lsdk_kernel
 	@$(call config_init,TP-Link TL-WR841N/D v9,tl-wr841nd-v9,4,12,1,QCA_QCA9533_SOC)
 	@$(call define_add,CONFIG_FOR_TPLINK_WR841N_V9,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -841,7 +841,7 @@ tp-link_tl-wr842n_v3: qca953x_common lsdk_kernel
 	@$(call config_init,TP-Link TL-WR842N/D v3,tl-wr842nd-v3,16,1,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_TPLINK_WR842N_V3,1)
 	@$(call define_add,CONFIG_USB,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -849,7 +849,7 @@ tp-link_tl-wr902ac_v1: qca953x_common lsdk_kernel
 	@$(call config_init,TP-Link TL-WR902AC,tl-wr902ac,8,3,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_TPLINK_WR902AC_V1,1)
 	@$(call define_add,CONFIG_USB,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(call define_add,CONFIG_PCI,1)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
@@ -870,7 +870,7 @@ wallys_dr531: qca953x_common
 	@$(call config_init,Wallys DR531,dr531,8,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_WALLYS_DR531,1)
 	@$(call define_add,CONFIG_USB,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(call define_add,CONFIG_PCI,1)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
@@ -879,7 +879,7 @@ whqx_e600g_v2: qca953x_common
 	@$(call config_init,WHQX E600G v2,e600g-v2,16,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_WHQX_E600G_V2,1)
 	@$(call define_add,CONFIG_USB,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(call define_add,CONFIG_PCI,1)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
@@ -888,7 +888,7 @@ whqx_e600gac_v2: qca953x_common
 	@$(call config_init,WHQX E600GAC v2,e600gac-v2,16,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_WHQX_E600GAC_V2,1)
 	@$(call define_add,CONFIG_USB,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(call define_add,CONFIG_PCI,1)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
@@ -896,14 +896,14 @@ whqx_e600gac_v2: qca953x_common
 yuncore_ap90q: qca953x_common
 	@$(call config_init,YunCore AP90Q,ap90q,16,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_YUNCORE_AP90Q,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
 yuncore_cpe830: qca953x_common
 	@$(call config_init,YunCore CPE830,cpe830,16,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_YUNCORE_CPE830,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -917,7 +917,7 @@ yuncore_cpe870: ar934x_common
 yuncore_t830: qca953x_common
 	@$(call config_init,YunCore T830,t830,16,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_YUNCORE_T830,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
@@ -925,7 +925,7 @@ zbtlink_zbt-we1526: qca953x_common
 	@$(call config_init,Zbtlink ZBT-WE1526,zbt-we1526,16,17,1,QCA_QCA9531_SOC)
 	@$(call define_add,CONFIG_FOR_ZBTLINK_ZBT_WE1526,1)
 	@$(call define_add,CONFIG_USB,1)
-	@$(call define_add,CONFIG_ATHRS27_PHY,1)
+	@$(call define_add,CFG_ATHRS27_PHY,1)
 	@$(call define_add,CFG_ATH_GMAC_NMACS,2)
 	@$(MKCONFIG) -a ap143 mips mips ap143 ar7240 ar7240
 
