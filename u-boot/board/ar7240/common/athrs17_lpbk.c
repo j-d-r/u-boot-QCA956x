@@ -1,31 +1,19 @@
-/*
- * Copyright (c) 2013 Qualcomm Atheros, Inc.
- *
- * See file CREDITS for list of people who contributed to this
- * project.
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License as
- * published by the Free Software Foundation; either version 2 of
- * the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston,
- * MA 02111-1307 USA
+/* 
+ * Copyright (c) 2014 Qualcomm Atheros, Inc.
+ * 
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ * 
  */
-
-// ----------------------------------
-// S17 Initialization
-// author : subha@atheros.com
-// adapted: Abishek Goda <Abishek.Goda at atheros dot com>
-// ----------------------------------
-
 //#include <prototypes.h>
 //#include <gmac_defines.h>
 #include <config.h>
@@ -253,7 +241,7 @@ void init_s17_lpbk(void)
     int phyAddr = 0;
     unsigned int rddata;
 
-#ifdef ATH_S17_MAC0_SGMII
+#ifdef CONFIG_ATHRS_GMAC_SGMII
     athrs17_reg_write(0x4   , 0x080080);
     athrs17_reg_write(0xc   , 0x07600000);
     athrs17_reg_write(0x94  , 0x000000fe); // 1gbps
@@ -271,7 +259,7 @@ void init_s17_lpbk(void)
     //athrs17_reg_write(0x7c  , 0x0000007c); // 10 mbps
 
     phyBase = 0;
-#ifdef ATH_S17_MAC0_SGMII
+#ifdef CONFIG_ATHRS_GMAC_SGMII
     phyAddr = 4;
 #else
     phyAddr = 0;
@@ -286,7 +274,7 @@ void init_s17_lpbk(void)
     printf("s17 phy0 register value 0x%08x\n", rddata);
 #endif
     // power down other phys
-#ifdef ATH_S17_MAC0_SGMII
+#ifdef CONFIG_ATHRS_GMAC_SGMII
     phy_reg_write(0, 0x0, 0x0, 0x8800);
 #else
     phy_reg_write(0, 0x4, 0x0, 0x8800);
