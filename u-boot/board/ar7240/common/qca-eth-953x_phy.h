@@ -26,12 +26,12 @@
 
 
 #ifdef CONFIG_ATHR_8033_PHY
-extern int athrs_ar8033_reg_init(void *arg);
-extern int athrs_ar8033_phy_setup(void  *arg);
-extern int athrs_ar8033_phy_is_fdx(int ethUnit);
-extern int athrs_ar8033_phy_is_link_alive(int phyUnit);
-extern int athrs_ar8033_phy_is_up(int ethUnit);
-extern int athrs_ar8033_phy_speed(int ethUnit,int phyUnit);
+extern int athr_ar8033_reg_init(void *arg);
+extern int athr_ar8033_phy_setup(void  *arg);
+extern int athr_ar8033_phy_is_fdx(int ethUnit);
+extern int athr_ar8033_phy_is_link_alive(int phyUnit);
+extern int athr_ar8033_phy_is_up(int ethUnit);
+extern int athr_ar8033_phy_speed(int ethUnit,int phyUnit);
 #endif
 
 #ifdef CFG_ATHRS27_PHY

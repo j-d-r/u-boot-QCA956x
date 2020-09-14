@@ -20,11 +20,11 @@
 #include <miiphy.h>
 
 #ifdef CONFIG_ATHR_8033_PHY
-extern int athrs_ar8033_reg_init(int ethUnit);
-extern int athrs_ar8033_phy_setup(int ethUnit);
-extern int athrs_ar8033_phy_is_up(int ethUnit);
-extern int athrs_ar8033_phy_is_fdx(int ethUnit);
-extern int athrs_ar8033_phy_speed(int ethUnit);
+extern int athr_ar8033_reg_init(int ethUnit);
+extern int athr_ar8033_phy_setup(int ethUnit);
+extern int athr_ar8033_phy_is_up(int ethUnit);
+extern int athr_ar8033_phy_is_fdx(int ethUnit);
+extern int athr_ar8033_phy_speed(int ethUnit);
 #endif
 
 #ifdef CONFIG_ATHRS17_PHY
@@ -50,7 +50,7 @@ static inline void ath_gmac_phy_setup(int unit)
 #endif
 
 #ifdef CONFIG_ATHR_8033_PHY
-                        athrs_ar8033_phy_setup(unit);
+                        athr_ar8033_phy_setup(unit);
 #endif
 		}
 }
@@ -67,7 +67,7 @@ static inline void ath_gmac_phy_link(int unit, int *link)
 			*link = athr_vir_phy_is_up(unit);
 #endif
 #ifdef CONFIG_ATHR_8033_PHY
-			*link = athrs_ar8033_phy_is_up(unit);
+			*link = athr_ar8033_phy_is_up(unit);
 #endif
 #if defined(CONFIG_ATHRS17_PHY) && !defined (CFG_DUAL_PHY_SUPPORT)
 			*link = athrs17_phy_is_up(unit);
@@ -87,7 +87,7 @@ static inline void ath_gmac_phy_duplex(int unit, int *duplex)
 			*duplex = athr_vir_phy_is_fdx(unit);
 #endif
 #ifdef CONFIG_ATHR_8033_PHY
-			*duplex = athrs_ar8033_phy_is_fdx(unit);
+			*duplex = athr_ar8033_phy_is_fdx(unit);
 #endif
 #if defined(CONFIG_ATHRS17_PHY) && !defined(CFG_DUAL_PHY_SUPPORT)
 			*duplex = athrs17_phy_is_fdx(unit);
@@ -107,7 +107,7 @@ static inline void ath_gmac_phy_speed(int unit, int *speed)
 			*speed = athr_vir_phy_speed(unit);
 #endif
 #ifdef CONFIG_ATHR_8033_PHY
-			*speed = athrs_ar8033_phy_speed(unit);
+			*speed = athr_ar8033_phy_speed(unit);
 #endif
 
 #if defined(CONFIG_ATHRS17_PHY) && !defined (CFG_DUAL_PHY_SUPPORT)

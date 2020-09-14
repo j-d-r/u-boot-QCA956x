@@ -59,7 +59,7 @@ ifeq ($(ETH_CONFIG), _s27)
 endif
 
 ifeq ($(ETH_CONFIG), _ar8033)
-  OBJS-y	+= ../common/athrs_ar8033_phy.o
+  OBJS-y	+= ../common/athr_ar8033_phy.o
   OBJS-y	+= ../common/miiphybb.o
 endif
 

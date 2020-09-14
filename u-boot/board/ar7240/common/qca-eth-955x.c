@@ -66,11 +66,11 @@ extern void athrs17_reg_init_wan(void);
 #endif
 
 #ifdef CONFIG_ATHR_8033_PHY
-extern int athrs_ar8033_reg_init(int ethUnit);
-extern int athrs_ar8033_phy_setup(int ethUnit);
-extern int athrs_ar8033_phy_is_up(int ethUnit);
-extern int athrs_ar8033_phy_is_fdx(int ethUnit);
-extern int athrs_ar8033_phy_speed(int ethUnit);
+extern int athr_ar8033_reg_init(int ethUnit);
+extern int athr_ar8033_phy_setup(int ethUnit);
+extern int athr_ar8033_phy_is_up(int ethUnit);
+extern int athr_ar8033_phy_is_fdx(int ethUnit);
+extern int athr_ar8033_phy_speed(int ethUnit);
 #endif
 
 #ifdef CONFIG_ATH_NAND_BR
@@ -723,7 +723,7 @@ int ath_gmac_enet_initialize(bd_t * bis)
 		} else {
 #ifdef CONFIG_ATHR_8033_PHY
 			printf("AR8033 PHY init \n");
-			athrs_ar8033_reg_init(0);
+			athr_ar8033_reg_init(0);
 #endif
 
 #if defined(CONFIG_MGMT_INIT) && defined (CONFIG_ATHR_SWITCH_ONLY_MODE)
