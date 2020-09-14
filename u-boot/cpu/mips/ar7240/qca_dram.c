@@ -988,7 +988,7 @@ void qca_dram_init(void)
 
 	/* Enable and reset DLL */
 	qca_dram_set_emr(_ddr_sdram_emr_val(0, 1, 0, 0, 0, 0));
-	qca_dram_set_mr(_ddr_sdram_mr_val(0, 0, 1, 0));
+	qca_dram_set_mr(_ddr_sdram_mr_val(0, 0, 1, 8));
 
 	/* Precharge all, 2x auto refresh */
 	qca_dram_force_preall();
@@ -1011,7 +1011,7 @@ void qca_dram_init(void)
 					   1, 0, 0));
 	} else {
 		/* Setup target MR */
-		qca_dram_set_mr(_ddr_sdram_mr_val(0, cas_lat, 0, 0));
+		qca_dram_set_mr(_ddr_sdram_mr_val(0, cas_lat, 0, 8));
 	}
 
 	/* Enable DDR refresh and setup refresh period */
