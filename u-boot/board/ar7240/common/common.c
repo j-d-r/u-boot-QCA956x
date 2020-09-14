@@ -59,7 +59,7 @@ void qca_soc_name_rev(char *buf)
 	case QCA_RST_REVISION_ID_MAJOR_QCA9533_V2_VAL: name="QCA953x ver. 2"; break;
 #elif (SOC_TYPE & QCA_QCA955X_SOC)
 	case QCA_RST_REVISION_ID_MAJOR_QCA9556_VAL: name="QCA9556"; break;
-	case QCA_RST_REVISION_ID_MAJOR_QCA9558_VAL: name="QCA9558 ver. 1"; break;
+	case QCA_RST_REVISION_ID_MAJOR_QCA9558_VAL: name="QCA9558"; break;
 #elif (SOC_TYPE & QCA_QCA956X_SOC)
 	case QCA_RST_REVISION_ID_MAJOR_QCA956X_VAL: name="QCA956x"; break;
 #endif
