@@ -20,7 +20,7 @@
 #include "phy.h"
 #include <asm/addrspace.h>
 #include "ar7240_soc.h"
-#include "athrs27_phy.h"
+#include "athr_s27_phy.h"
 
 /* PHY selections and access functions */
 #define DRV_PRINT(DBG_SW,X)

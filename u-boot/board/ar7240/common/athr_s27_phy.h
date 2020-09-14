@@ -20,8 +20,8 @@
  * MA 02111-1307 USA
  */
 
-#ifndef _ATHRS27_PHY_H
-#define _ATHRS27_PHY_H
+#ifndef _ATHR_S27_PHY_H
+#define _ATHR_S27_PHY_H
 
 
 /*****************/
