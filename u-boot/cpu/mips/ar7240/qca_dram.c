@@ -812,8 +812,6 @@ static inline void qca_dram_set_en_refresh(void)
 
 /*
  * Initial DRAM configuration
- *
- * Not working on QCA956x
  */
 void qca_dram_init(void)
 {
