@@ -33,7 +33,7 @@ endif
 # 1) Add O= to the make command line
 # 'make O=/tmp/build all'
 #
-# 2) Set environement variable BUILD_DIR to point to the desired location
+# 2) Set environment variable BUILD_DIR to point to the desired location
 # 'export BUILD_DIR=/tmp/build'
 # 'make'
 #
@@ -41,7 +41,7 @@ endif
 # 'export BUILD_DIR=/tmp/build'
 # './MAKEALL'
 #
-# Command line 'O=' setting overrides BUILD_DIR environent variable.
+# Command line 'O=' setting overrides BUILD_DIR environment variable.
 #
 # When none of the above methods is used the local build is performed and
 # the object files are placed in the source directory.

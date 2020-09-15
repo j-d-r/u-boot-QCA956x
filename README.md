@@ -641,7 +641,7 @@ root@OpenWrt:/# u-boot-upgrade
 
 **WARNING! This method is not recommended!**
 
-1. Login into the router using telnet or SSH and find out which of the mtd partitions is the first one. In DD-WRT it is usally called `RedBoot`:
+1. Login into the router using telnet or SSH and find out which of the mtd partitions is the first one. In DD-WRT it is usually called `RedBoot`:
 
   ```
   root@DD-WRT:~# cat /proc/mtd
@@ -763,7 +763,7 @@ will start building U-Boot image for **TP-Link TL-WR703N**.
 
 ### Building on macOS (OS X)
 
-You can build using the OpenWrt/LEDE toolchain as above under macOS (OS X) as long as you install several gnu command line tools via brew. Note that bash is required to correct the usage of colorized echo output within the Makefiles (I was suprised how inconsistent FreeBSD is with Linux/GNU in this regard).
+You can build using the OpenWrt/LEDE toolchain as above under macOS (OS X) as long as you install several gnu command line tools via brew. Note that bash is required to correct the usage of colorized echo output within the Makefiles (I was surprised how inconsistent FreeBSD is with Linux/GNU in this regard).
 
 ```
 brew install bash coreutils gnu-sed
