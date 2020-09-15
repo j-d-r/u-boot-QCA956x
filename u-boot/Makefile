@@ -16,7 +16,7 @@ MKCONFIG = $(BUILD_TOPDIR)/u-boot/mkconfig
 MKIMAGE  = $(obj)tools/mkimage
 
 XZ     = xz
-XZ_OPT = -9 -k -f --format=lzma --lzma1=dict=256KiB,lc=2,lp=2,pb=2,mode=normal,nice=128,mf=bt2,depth=0
+XZ_OPT = -9 -k -f --format=lzma --lzma1=dict=256KiB,lc=2,lp=2,pb=2,mode=normal,nice=64,mf=bt2,depth=1000
 
 # Show in version string if we are not building from clean repository
 ifeq ($(ISREPODIRTY),1)
