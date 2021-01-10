@@ -455,6 +455,7 @@ char * bcopy(const char * src, char * dest, int count)
  * You should not use this function to access IO space, use memcpy_toio()
  * or memcpy_fromio() instead.
  */
+__attribute__ ((used)) // Workaround for GCC 10 with LTO discarding this function
 void * memcpy(void * dest,const void *src,size_t count)
 {
 	char *tmp = (char *) dest, *s = (char *) src;
