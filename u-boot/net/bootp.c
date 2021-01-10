@@ -38,7 +38,7 @@ ulong BootpID;
 int BootpTry;
 
 #if defined(CONFIG_BOOTP_RANDOM_DELAY)
-ulong seed1, seed2;
+static ulong seed1, seed2;
 #endif
 
 #if defined(CONFIG_CMD_DHCP)
@@ -76,7 +76,7 @@ static int BootpCheckPkt(uchar *pkt, unsigned dest, unsigned src, unsigned len)
 		retval = -4;
 	} else if (bp->bp_hlen != HWL_ETHER) {
 		retval = -5;
-	} else if (NetReadLong((ulong*)&bp->bp_id) != BootpID) {
+	} else if (bp->bp_id != BootpID) {
 		retval = -6;
 	}
 
@@ -732,7 +732,7 @@ void BootpRequest(void)
 	BootpID += get_timer(0);
 	BootpID = htonl(BootpID);
 
-	NetCopyLong(&bp->bp_id, &BootpID);
+	bp->bp_id = BootpID;
 
 	/*
 	 * Calculate proper packet lengths taking into account the
@@ -934,7 +934,7 @@ static void DhcpSendRequestPkt(Bootp_t *bp_offer)
 	memcpy(bp->bp_chaddr, NetOurEther, 6);
 
 	/* ID is the id of the OFFER packet */
-	NetCopyLong(&bp->bp_id, &bp_offer->bp_id);
+	bp->bp_id = bp_offer->bp_id;
 
 	/* Copy options from OFFER packet if present */
 	NetCopyIP(&OfferedIP, &bp->bp_yiaddr);

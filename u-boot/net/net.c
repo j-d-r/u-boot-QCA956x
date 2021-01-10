@@ -668,7 +668,6 @@ static ushort PingSeqNo;
 int PingSend(void){
 	static uchar mac[6];
 	volatile IP_t *ip;
-	volatile ushort *s;
 	uchar *pkt;
 
 	/* XXX always send arp request */
@@ -704,13 +703,11 @@ int PingSend(void){
 
 	ip->ip_sum = ~NetCksum((uchar *)ip, IP_HDR_SIZE_NO_UDP / 2);
 
-	s = &ip->udp_src; /* XXX ICMP starts here */
-
-	s[0] = htons(0x0800); /* echo-request, code */
-	s[1] = 0; /* checksum */
-	s[2] = 0; /* identifier */
-	s[3] = htons(PingSeqNo++); /* sequence number */
-	s[1] = ~NetCksum((uchar *)s, 8/2);
+	ip->icmp_code	= htons(0x0800); /* echo-request, code */
+	ip->icmp_sum	= 0; /* checksum */
+	ip->icmp_id	= 0; /* identifier */
+	ip->icmp_seq	= htons(PingSeqNo++); /* sequence number */
+	ip->icmp_sum	= ~NetCksum((uchar *)ip + IP_HDR_SIZE_NO_UDP, 8/2);
 
 	/* size of the waiting packet */
 	NetArpWaitTxPacketSize = (pkt - NetArpWaitTxPacket) + IP_HDR_SIZE_NO_UDP + 8;

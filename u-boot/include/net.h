@@ -193,10 +193,20 @@ typedef struct {
 	ushort		ip_sum;		/* checksum			*/
 	IPaddr_t	ip_src;		/* Source IP address		*/
 	IPaddr_t	ip_dst;		/* Destination IP address	*/
-	ushort		udp_src;	/* UDP source port		*/
-	ushort		udp_dst;	/* UDP destination port		*/
-	ushort		udp_len;	/* Length of UDP packet		*/
-	ushort		udp_xsum;	/* Checksum			*/
+	union {
+		struct {
+			ushort		udp_src;	/* UDP source port		*/
+			ushort		udp_dst;	/* UDP destination port		*/
+			ushort		udp_len;	/* Length of UDP packet		*/
+			ushort		udp_xsum;	/* Checksum			*/
+		};
+		struct {
+			ushort		icmp_code;
+			ushort		icmp_sum;
+			ushort		icmp_id;
+			ushort		icmp_seq;
+		};
+	};
 } __attribute__((__packed__)) IP_t;
 
 #define IP_HDR_SIZE_NO_UDP	(sizeof (IP_t) - 8)
