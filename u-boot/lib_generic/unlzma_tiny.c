@@ -15,9 +15,50 @@
 #include "unlzma_tiny.h"
 #include "unlzma_tiny_config.h"
 
+/* unlzma_tiny_config.h can define:
+ *
+ * DBG(...) to a printf function
+ * WARN(msg) to a puts
+ *
+ * To use malloc instead of alloca:
+ * ALLOC_PROBS(size) to a malloc function
+ * FREE_PROBS(ptr) to a free function
+ */
+
+#ifndef DBG
+# define DBG(...) do { } while(0)
+#endif
+
+#ifndef WARN
+# define WARN(msg) do { } while(0)
+#endif
+
+/* Use stack */
+#ifndef ALLOC_PROBS
+# include <alloca.h>
+# define ALLOC_PROBS(size) alloca(size)
+# define FREE_PROBS(ptr) do { } while(0)
+#endif
+
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+# define SWAP_LE32(x) (x)
+# define SWAP_LE64(x) (x)
+#else
+# define SWAP_LE32(x) __builtin_bswap32(x)
+# define SWAP_LE64(x) __builtin_bswap64(x)
+#endif
+
+#define ALWAYS_INLINE __attribute__ ((always_inline)) inline
+#define PACKED __attribute__ ((__packed__))
+#define FAST_FUNC
+
+#define speed_inline
+
 typedef struct {
-	uint8_t *ptr;
-	uint8_t *buffer_end;
+	const uint8_t *ptr;
+#ifndef UNSAFE_TRUNCATED_INPUT
+	const uint8_t *buffer_end;
+#endif
 	uint32_t code;
 	uint32_t range;
 	uint32_t bound;
@@ -27,14 +68,16 @@ typedef struct {
 #define RC_MOVE_BITS 5
 #define RC_MODEL_TOTAL_BITS 11
 
-
 /* Called twice, but one callsite is in speed_inline'd rc_is_bit_1() */
 static void rc_do_normalize(rc_t *rc)
 {
+#ifndef UNSAFE_TRUNCATED_INPUT
 	if (rc->ptr >= rc->buffer_end) {
-		//TODO: find a way to exit and free probes
-		die("truncated input");
+		WARN("truncated input");
+		rc->buffer_end = 0;
+		return;
 	}
+#endif
 	rc->range <<= 8;
 	rc->code = (rc->code << 8) | *rc->ptr++;
 }
@@ -46,12 +89,16 @@ static ALWAYS_INLINE void rc_normalize(rc_t *rc)
 }
 
 /* Called once */
-static ALWAYS_INLINE void rc_init(rc_t* rc, uint8_t *ptr, size_t size)
+static ALWAYS_INLINE void rc_init(rc_t* rc, const uint8_t *ptr, size_t size)
 {
 	int i;
 
 	rc->ptr = ptr;
+#ifndef UNSAFE_TRUNCATED_INPUT
 	rc->buffer_end = ptr + size;
+#else
+	(void)size;
+#endif
 	rc->range = 0;
 	rc->code = 0;
 	rc->bound = 0;
@@ -172,9 +219,9 @@ enum {
 
 
 size_t
-lzma_inflate(uint8_t *in_ptr, size_t in_size, uint8_t *buffer, size_t buffer_size)
+lzma_inflate(const uint8_t * in_ptr, size_t in_size, uint8_t *restrict buffer, size_t buffer_size)
 {
-	lzma_header_t *header = (lzma_header_t *)in_ptr;
+	const lzma_header_t *header = (const lzma_header_t *)in_ptr;
 	uint32_t dict_size;
 	size_t dst_size;
 	int lc, pb, lp;
@@ -191,7 +238,7 @@ lzma_inflate(uint8_t *in_ptr, size_t in_size, uint8_t *buffer, size_t buffer_siz
 	uint32_t rep0 = 1, rep1 = 1, rep2 = 1, rep3 = 1;
 
 	if(in_size < sizeof(lzma_header_t)) {
-		warn("too short lzma file");
+		WARN("too short lzma file");
 		goto bad;
 	}
 
@@ -199,7 +246,7 @@ lzma_inflate(uint8_t *in_ptr, size_t in_size, uint8_t *buffer, size_t buffer_siz
 	in_size -= sizeof(lzma_header_t);
 
 	if (header->pos >= (9 * 5 * 5)) {
-		warn("bad lzma header");
+		WARN("bad lzma header");
 		goto bad;
 	}
 
@@ -221,8 +268,12 @@ lzma_inflate(uint8_t *in_ptr, size_t in_size, uint8_t *buffer, size_t buffer_siz
 		int num_probs;
 
 		num_probs = LZMA_BASE_SIZE + (LZMA_LIT_SIZE << (lc + lp));
-		warn("alloc size: %lu", num_probs * sizeof(*p));
-		p = alloc_probs(num_probs * sizeof(*p));
+		DBG("alloc size: %zu", num_probs * sizeof(*p));
+		p = ALLOC_PROBS(num_probs * sizeof(*p));
+		if(!p) {
+			WARN("failed to allocate probs");
+			goto bad;
+		}
 		num_probs += LZMA_LITERAL - LZMA_BASE_SIZE;
 		for (i = 0; i < num_probs; i++)
 			p[i] = (1 << RC_MODEL_TOTAL_BITS) >> 1;
@@ -233,6 +284,11 @@ lzma_inflate(uint8_t *in_ptr, size_t in_size, uint8_t *buffer, size_t buffer_siz
 	while (buffer_pos < dst_size) {
 		int pos_state = buffer_pos & pos_state_mask;
 		uint16_t *prob = p + LZMA_IS_MATCH + (state << LZMA_NUM_POS_BITS_MAX) + pos_state;
+
+#ifndef UNSAFE_TRUNCATED_INPUT
+		if (!rc->buffer_end)
+			goto bad;
+#endif
 
 		if (!rc_is_bit_1(rc, prob)) {
 			static const char next_state[LZMA_NUM_STATES] =
@@ -411,14 +467,14 @@ lzma_inflate(uint8_t *in_ptr, size_t in_size, uint8_t *buffer, size_t buffer_siz
 					/* more stringent test (see unzip_bad_lzma_1.zip): */
 				}
 				if (pos >= buffer_size) {
-					warn("too small output buffer");
+					WARN("too small output buffer");
 					goto bad;
 				}
 
 				previous_byte = buffer[pos];
 	one_byte2:
 				if (buffer_pos >= buffer_size) {
-					warn("too small output buffer");
+					WARN("too small output buffer");
 					goto bad;
 				}
 				buffer[buffer_pos++] = previous_byte;
@@ -427,11 +483,11 @@ lzma_inflate(uint8_t *in_ptr, size_t in_size, uint8_t *buffer, size_t buffer_siz
 		}
 	}
 
-	free_probs(p);
+	FREE_PROBS(p);
 	return buffer_pos;
 
  bad:
-	warn("failed");
-	free_probs(p);
+	WARN("inflate failed");
+	FREE_PROBS(p);
 	return (size_t)-1;
 }
